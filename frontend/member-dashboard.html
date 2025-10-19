@@ -219,17 +219,17 @@
         document.addEventListener('DOMContentLoaded', function() {
             const userData = localStorage.getItem('user');
             if (!userData) {
-                window.location.href = 'index.html';
+                window.location.href = '/index';
                 return;
             }
 
             currentUser = JSON.parse(userData);
             
             // For member dashboard - check if user is actually a member and approved
-            if (window.location.pathname.includes('member-dashboard.html') && 
+            if (window.location.pathname.includes('/member-dashboard') && 
                 (currentUser.role !== 'member' || currentUser.status !== 'approved')) {
                 localStorage.removeItem('user');
-                window.location.href = 'index.html';
+                window.location.href = '/index';
                 return;
             }
             
@@ -1333,7 +1333,7 @@
 
         function performLogout() {
             localStorage.removeItem('user');
-            window.location.href = 'index.html';
+            window.location.href = '/index';
         }
 
         function escapeHtml(text) {

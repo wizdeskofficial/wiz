@@ -22,7 +22,7 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', message: 'Server is running' });
 });
 
-// Serve HTML pages
+// Serve HTML pages with clean URLs
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/index.html'));
 });
@@ -31,7 +31,7 @@ app.get('/register-leader', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/register-leader.html'));
 });
 
-app.get('/register-member', (req, res) => {
+app.get('/member-register', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/member-register.html'));
 });
 
@@ -41,6 +41,47 @@ app.get('/leader-dashboard', (req, res) => {
 
 app.get('/member-dashboard', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/member-dashboard.html'));
+});
+
+app.get('/dashboard', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/dashboard.html'));
+});
+
+app.get('/verify-email', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/verify-email.html'));
+});
+
+app.get('/verify-member-email', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/verify-member-email.html'));
+});
+
+app.get('/about', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/about.html'));
+});
+
+app.get('/features', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/features.html'));
+});
+
+app.get('/pricing', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/pricing.html'));
+});
+
+app.get('/contact', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/contact.html'));
+});
+
+app.get('/privacy', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/privacy.html'));
+});
+
+app.get('/terms', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/terms.html'));
+});
+
+// Catch all handler - FIXED: Use regex instead of '*'
+app.get(/.*/, (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/index.html'));
 });
 
 // Start server
